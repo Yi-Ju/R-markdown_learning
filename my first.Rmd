@@ -1,0 +1,156 @@
+---
+title: "my first R markdown"
+author: "Yi-Ju"
+date: "2018/10/15"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: 
+      collapsed: false
+    number_sections: true
+    theme: cosmo
+    highlight: haddock
+---
+
+```{r setup, include=FALSE}
+# If a certain option needs to be frequently set to a value in multiple code chunks, you can consider setting it globally in the first code chunk of your document, e.g.,
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# The first try
+
+useful books: <https://bookdown.org/yihui/rmarkdown/how-to-read-this-book.html>
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. H~3~PO~4~  Ca^2+^
+[RStudio](https://www.rstudio.com)
+
+^[This is a footnote.]
+
+# First-level header
+
+## Second-level header
+
+### Third-level header
+
+
+- one item
+- one item
+- one item
+    - one more item
+    - one more item
+    - one more item
+
+1. the first item
+2. the second item
+3. the third item
+    - one unordered item
+    - one unordered item
+
+> "I thoroughly disapprove of duels. If a man should challenge me,
+  I would take him kindly and forgivingly by the hand and lead him
+  to a quiet place and kill him."
+>
+> --- Mark Twain
+
+
+```
+This text is displayed verbatim / preformatted
+```
+
+
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded `R code chunks` within the ``` ``document`` ```. *You can embed an R code chunk* like this:
+
+```{r cars}
+summary(cars)
+```
+
+
+(command+option+I)
+```{r, chunk-label, results='hide'}
+summary(cars)
+```
+
+
+```{r}
+# execute code if the date is later than a specified day
+do_it = Sys.Date() > '2018-02-14'
+```
+
+```{r, eval=do_it}
+x = rnorm(100)
+```
+
+
+
+
+```{r}
+x = 5  # radius of a circle
+```
+For a circle with the radius `r x`,
+its area is `r pi * x^2`.
+
+
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r, fig.cap = 'fig1: haha', fig.pos = 'h'}
+plot(cars, pch = 18)
+```
+
+```{r, fig.hold = 'hold', out.width = '25%'}
+par(mar = c(4, 4, 0.2, 0.1))
+plot(cars, pch = 19)
+plot(pressure, pch = 17)
+```
+
+## Including Tables
+
+```{r tables-mtcars, echo=FALSE}
+knitr::kable(iris[1:5, ], caption = 'A caption')
+```
+
+
+## javascript
+```{js, echo=FALSE}
+# If you are using an R Markdown format that targets HTML output (e.g., html_document and ioslides_presenation, etc.), you can include JavaScript to be executed within the HTML page using the JavaScript engine named js.
+
+# For example, the following chunk uses jQuery (which is included in most R Markdown HTML formats) to change the color of the document title to red:
+
+
+$('.title').css('color', 'red')
+```
+
+## Quarterly Results {.tabset}
+
+### By Product
+
+(tab content1)
+
+### By Region
+
+(tab content2)
+
+
+## Quarterly Results(pill tabs) {.tabset .tabset-fade .tabset-pills}
+
+### By Product
+
+(tab content1)
+
+### By Region
+
+(tab content2)
